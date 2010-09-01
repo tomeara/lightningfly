@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  artist: Arcade Fire
+  title: We Used to Wait
+  album: The Suburbs
+  track: 12
+  genre: Indie Rock
+
+two:
+  artist: Japandroids
+  title: Young Hearts Spark Fire
+  album: Post-Nothing
+  track: 2
+  genre: Throwback Punk
