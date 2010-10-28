@@ -3,11 +3,42 @@
 <head>
   <title>Lightningfly</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+  <%= javascript_include_tag :defaults, "soundmanager2-jsmin.js" %>
+	<script>
+	soundManager.url = '/images/swfs/soundmanager/';
+	// Note that SoundManager will determine and append the appropriate .SWF file to the URL,
+	// eg. /path/to/sm2-flash-movies/soundmanager2.swf automatically.
+
+	// Beta-ish HTML5 audio support (force-enabled for iPad), flash-free sound for Safari + Chrome. Enable if you want to try it!
+	// soundManager.useHTML5Audio = true;
+
+	// do this to skip flash block handling for now. See the flashblock demo when you want to start getting fancy.
+	soundManager.useFlashBlock = false;
+
+	// disable debug mode after development/testing..
+	 //soundManager.debugMode = false;
+
+	// Option 1: Simple onload() + createSound() method
+
+	soundManager.onload = function() {
+	  // SM2 has loaded - now you can create and play sounds!
+	  var mySoundObject = soundManager.createSound({
+      id: 'mySound',
+      url: '<%= @publicpath %>',
+      onload: function() {
+        console.log('Bytes - '+this.bytesLoaded+'| Total - '+this.bytesTotal);
+      }
+    });
+    mySoundObject.play();
+  }
+
+	</script>
+
+<%= csrf_meta_tag %>
+	
 </head>
 <body>
-
+<%= @publicpath %>
 <%= yield %>
 
 </body>
