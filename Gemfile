@@ -8,6 +8,7 @@ gem 'rails', '3.0.1'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'daapclient', :require => 'net/daap'
 gem 'digest-m4p'
+gem 'net-ssh', :require => 'net/ssh'
 
 # Use unicorn as the web server
 # gem 'unicorn'
